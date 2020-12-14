@@ -42,20 +42,20 @@ customElements.define("test-provider", TestProvider);
 customElements.define("test-consumer", TestConsumer);
 
 describe("lit-elemt", () => {
-    it("to have default value if no provider exists", async () => {
+    it("have default value if no provider exists", async () => {
         const consumerEl = await fixture(html`<test-consumer></test-consumer>`);
 
         expect(consumerEl.value).to.equal(null);
     });
 
-    it("inject props value on after connect", async () => {
+    it("inject initial prop values on connect", async () => {
         const providerEl = await fixture(html`<test-provider></test-provider>`);
         const consumerEl = providerEl.shadowRoot.querySelector("test-consumer");
 
         expect(consumerEl).shadowDom.equal("<div>1</div>");
     });
 
-    it("update props values then context changes", async () => {
+    it("update injected props, then context value changes", async () => {
         const providerEl = await fixture(html`<test-provider></test-provider>`);
         const consumerEl = providerEl.shadowRoot.querySelector("test-consumer");
 
