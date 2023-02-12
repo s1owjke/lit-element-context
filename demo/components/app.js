@@ -1,9 +1,8 @@
-import { LitElement, html } from "lit-element";
-import { ProviderMixin } from "../../src/context";
-import { ScopedElementsMixin } from "@open-wc/scoped-elements";
-import Input from "./input";
+import { LitElement, html } from "lit";
 
-export default class App extends ScopedElementsMixin(ProviderMixin(LitElement)) {
+import { ProviderMixin } from "../../dist/src";
+
+export default class App extends ProviderMixin(LitElement) {
     constructor() {
         super();
 
@@ -22,12 +21,6 @@ export default class App extends ScopedElementsMixin(ProviderMixin(LitElement)) 
 
     static get provide() {
         return ["name", "setName"];
-    }
-
-    static get scopedElements() {
-        return {
-            "input-component": Input,
-        };
     }
 
     render() {

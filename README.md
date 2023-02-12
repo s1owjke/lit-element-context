@@ -13,7 +13,7 @@ A set of [class mixin functions](https://alligator.io/js/class-composition/#comp
 An example app also available on [codesandbox](https://codesandbox.io/s/lit-element-context-demo-i7f8u?file=/src/app.js)
 
 ```javascript
-import { LitElement, html } from "lit-element";
+import { LitElement, html } from "lit";
 import { ProviderMixin, ConsumerMixin } from "lit-element-context";
 
 class App extends ProviderMixin(LitElement) {

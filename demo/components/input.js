@@ -1,5 +1,6 @@
-import { LitElement, html } from "lit-element";
-import { ConsumerMixin } from "../../src/context";
+import { LitElement, html } from "lit";
+
+import { ConsumerMixin } from "../../dist/src";
 
 export default class Input extends ConsumerMixin(LitElement) {
     static get properties() {
