@@ -4,7 +4,11 @@
     "declaration": true,
     "esModuleInterop": false,
     "experimentalDecorators": true,
-    "lib": ["es2020", "dom", "dom.iterable"],
+    "lib": [
+      "es2020",
+      "dom",
+      "dom.iterable"
+    ],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmitOnError": true,
@@ -19,5 +23,7 @@
     "strict": true,
     "target": "es2019"
   },
-  "include": ["**/*.ts"]
+  "include": [
+    "**/*.ts"
+  ]
 }

@@ -1,0 +1,7 @@
+# Files
+package-lock.json
+tsconfig.json
+
+# Folders
+/node_modules
+/dist

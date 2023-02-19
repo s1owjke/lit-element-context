@@ -1,0 +1,25 @@
+name: Lint
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Dependencies and Packages
+        run: npm ci
+
+      - name: Lint project
+        run: npm run lint
+
+      - name: Check types
+        run: npm run typecheck
