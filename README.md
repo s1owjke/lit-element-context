@@ -17,60 +17,60 @@ import { LitElement, html } from "lit";
 import { ProviderMixin, ConsumerMixin } from "lit-element-context";
 
 class App extends ProviderMixin(LitElement) {
-    constructor() {
-        super();
+  constructor() {
+    super();
 
-        this.name = "hello";
-        this.setName = (value) => {
-            this.name = value;
-        };
-    }
+    this.name = "hello";
+    this.setName = (value) => {
+      this.name = value;
+    };
+  }
 
-    // we need to know what props can be changed to update the context
-    static get properties() {
-        return {
-            name: String,
-            setName: Function,
-        };
-    }
+  // we need to know what props can be changed to update the context
+  static get properties() {
+    return {
+      name: String,
+      setName: Function,
+    };
+  }
 
-    // specify the parameters that will be available in the context
-    static get provide() {
-        return ["name", "setName"];
-    }
+  // specify the parameters that will be available in the context
+  static get provide() {
+    return ["name", "setName"];
+  }
 
-    render() {
-        return html`
-            <div>
-                <h1>Lit-element context</h1>
-                <p>Current name: ${this.name}</p>
-                <input-component></input-component>
-            </div>
-        `;
-    }
+  render() {
+    return html`
+      <div>
+        <h1>Lit-element context</h1>
+        <p>Current name: ${this.name}</p>
+        <input-component></input-component>
+      </div>
+    `;
+  }
 }
 
 class Input extends ConsumerMixin(LitElement) {
-    static get properties() {
-        return {
-            name: String,
-            setName: Function,
-        };
-    }
+  static get properties() {
+    return {
+      name: String,
+      setName: Function,
+    };
+  }
 
-    // props that will be passed from the context
-    static get inject() {
-        return ["name", "setName"];
-    }
+  // props that will be passed from the context
+  static get inject() {
+    return ["name", "setName"];
+  }
 
-    render() {
-        return html`
-            <div>
-                <label>Name:</label>
-                <input .value=${this.name} @input=${(event) => this.setName(event.target.value)} />
-            </div>
-        `;
-    }
+  render() {
+    return html`
+      <div>
+        <label>Name:</label>
+        <input .value=${this.name} @input=${(event) => this.setName(event.target.value)} />
+      </div>
+    `;
+  }
 }
 ```
 
