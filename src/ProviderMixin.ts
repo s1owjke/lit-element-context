@@ -62,7 +62,7 @@ export const ProviderMixin = dedupeMixin(<T extends Constructor<LitElement>>(Bas
     /**
      * Trigger subscriber callback to provide new context value
      */
-    protected updateContextValue(key: PropertyKey, value: any, oldValue: any): void {
+    protected updateContextValue(key: PropertyKey, value: unknown, oldValue: unknown): void {
       if (this.providedContexts.has(key)) {
         const context = this.providedContexts.get(key);
 

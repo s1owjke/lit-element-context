@@ -28,7 +28,7 @@ export const ConsumerMixin = dedupeMixin(<T extends Constructor<LitElement>>(Bas
      * unsubscribe callback we save to injected contexts, to call them on unmount
      */
     protected injectContext(key: PropertyKey) {
-      const callback = (value: any, oldValue: any) => {
+      const callback = (value: unknown, oldValue: unknown) => {
         this.contextValueChanged(key, value, oldValue);
       };
 
@@ -52,9 +52,10 @@ export const ConsumerMixin = dedupeMixin(<T extends Constructor<LitElement>>(Bas
     /**
      * Change value of property received from a context, then property changes
      */
-    protected contextValueChanged(key: PropertyKey, value: any, oldValue: any) {
+    protected contextValueChanged(key: PropertyKey, value: unknown, oldValue: unknown) {
       if (value !== oldValue) {
-        this[key as keyof this] = value;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        this[key as keyof this] = value as any;
       }
     }
 
