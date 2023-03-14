@@ -1,6 +1,6 @@
-# lit-element-context
+# LitElement Context
 
-[![Published on npm](https://img.shields.io/npm/v/lit-element-context.svg)](https://www.npmjs.com/package/lit-element-context)
+[![Published on npm](https://img.shields.io/npm/v/lit-element-context?color=brightgreen)](https://www.npmjs.com/package/lit-element-context) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 A set of [class mixin functions](https://alligator.io/js/class-composition/#composition-with-javascript-classes) to provide and inject multiple contexts for lit-element. Doesnt require any extra components for that.
 
@@ -73,7 +73,3 @@ class Input extends ConsumerMixin(LitElement) {
   }
 }
 ```
-
-### License
-
-MIT
