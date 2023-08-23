@@ -26,7 +26,7 @@ class App extends ProviderMixin(LitElement) {
     };
   }
 
-  // we need to know what props can be changed to update the context
+  // provided values must be specified as properties to keep them updated
   static get properties() {
     return {
       name: String,
@@ -34,7 +34,7 @@ class App extends ProviderMixin(LitElement) {
     };
   }
 
-  // specify the parameters that will be available in the context
+  // specify which properties will be available in the context
   static get provide() {
     return ["name", "setName"];
   }
@@ -58,7 +58,7 @@ class Input extends ConsumerMixin(LitElement) {
     };
   }
 
-  // props that will be passed from the context
+  // inject properties that we need from context
   static get inject() {
     return ["name", "setName"];
   }

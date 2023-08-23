@@ -43,26 +43,32 @@ customElements.define("test-provider", TestProvider);
 customElements.define("test-consumer", TestConsumer);
 
 describe("lit-element", () => {
-  it("have default value if no provider exists", async () => {
+  it("uses the default value if the provider doesn't exist", async () => {
     const consumerEl: TestConsumer = await fixture(html`<test-consumer></test-consumer>`);
 
     expect(consumerEl.value).to.equal(null);
   });
 
-  it("inject initial prop values on connect", async () => {
+  it("inject value from the provider", async () => {
     const providerEl: TestProvider = await fixture(html`<test-provider></test-provider>`);
-    const consumerEl = providerEl.shadowRoot?.querySelector("test-consumer");
+    const consumerEl = providerEl.shadowRoot?.querySelector("test-consumer") as TestConsumer;
 
+    expect(consumerEl).to.be.instanceof(TestConsumer);
+
+    expect(consumerEl.value).to.equal(1);
     expect(consumerEl).shadowDom.equal("<div>1</div>");
   });
 
-  it("update injected props, then context value changes", async () => {
+  it("update injected value if it has changed", async () => {
     const providerEl: TestProvider = await fixture(html`<test-provider></test-provider>`);
-    const consumerEl = providerEl.shadowRoot?.querySelector("test-consumer");
+    const consumerEl = providerEl.shadowRoot?.querySelector("test-consumer") as TestConsumer;
+
+    expect(consumerEl).to.be.instanceof(TestConsumer);
 
     providerEl.value = 2;
-    await elementUpdated(consumerEl as Element);
+    await elementUpdated(consumerEl);
 
+    expect(consumerEl.value).to.equal(2);
     expect(consumerEl).shadowDom.equal("<div>2</div>");
   });
 });
