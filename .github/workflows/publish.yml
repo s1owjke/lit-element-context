@@ -1,15 +1,11 @@
-name: Lint
+name: Publish
 
 on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
+  release:
+    types: [released]
 
 jobs:
-  lint:
+  publish:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,8 +21,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Lint project
-        run: npm run lint
+      - name: Build package
+        run: npm run build
 
-      - name: Check types
-        run: npm run typecheck
+      - name: Publish to registry
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
