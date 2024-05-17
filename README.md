@@ -2,13 +2,23 @@
 
 [![Published on npm](https://img.shields.io/npm/v/lit-element-context?color=brightgreen)](https://www.npmjs.com/package/lit-element-context) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-A set of [class mixin functions](https://alligator.io/js/class-composition/#composition-with-javascript-classes) to provide and inject multiple contexts for lit-element. Doesnt require any extra components for that.
+A set of [class mixin functions](https://alligator.io/js/class-composition/#composition-with-javascript-classes) to provide and inject multiple contexts for lit-element, doesn't require any extra components for that.
 
-#### Install
+## Install
 
-`npm install lit-element-context`
+Using NPM:
 
-#### Usage
+```shell
+npm install lit-element-context
+```
+
+Using YARN:
+
+```shell
+yarn add lit-element-context
+```
+
+## Usage
 
 An example app also available on [codesandbox](https://codesandbox.io/s/lit-element-context-demo-i7f8u?file=/src/app.js)
 

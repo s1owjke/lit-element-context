@@ -1,6 +1,6 @@
 {
   "name": "lit-element-context",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Context for lit-element components",
   "license": "MIT",
   "keywords": [
